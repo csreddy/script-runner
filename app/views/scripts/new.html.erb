@@ -1,0 +1,35 @@
+<%- model_class = Script -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h3>
+</div>
+<%= simple_form_for(@script, :html => { :class => 'form-horizontal' }) do |f| %>
+<div class="control-group">
+  <label class="control-label"><strong>Name</strong></label>
+  <div class="controls">
+<%= f.input :name, :label => false %>
+</div>
+</div>
+<div class="control-group">
+  <label class="control-label"><strong>Description</strong></label>
+  <div class="controls">
+ <%= f.input :description, :placeholder => 'Provide brief description of the script', :label => false, :input_html => { :rows => 5, :class => 'input-xxlarge' } %>
+
+</div>
+</div>
+<div class="control-group">
+  <label class="control-label"><strong>Command</strong></label>
+  <div class="controls">
+ <%= f.input :command, :label => false, :input_html => { :value => '#! /bin/bash', :rows => 10, :maxlength => 1000, :class => 'input-xxlarge'} %>
+<%= link_to(raw('<i class="icon-exclamation-sign"></i>help'), "/help.html",  :target => "_blank") %>
+</div>
+</div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), scripts_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+<%#= render :partial => 'form' %>

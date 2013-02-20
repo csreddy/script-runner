@@ -1,0 +1,4 @@
+$('#msg').html("<span class='label'>Message:</span>Last executed script was ").append("<font color='red'><%= escape_javascript(@script.name) %></font>").append(" at <%= escape_javascript(Time.now.to_s) %>");
+$('#stdout').html('').append("<pre><%= escape_javascript(@success) %></pre>");
+$('#stderr').html('').append("<pre><p class='text-error'><%= escape_javascript(@error) %></p></pre>");
+

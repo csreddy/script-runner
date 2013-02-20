@@ -1,0 +1,55 @@
+<%- model_class = Script -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => model_class.model_name.human.pluralize %></h3>
+</div>
+<p>
+  Download:
+  <%= link_to "XML", scripts_path(format: "xml"), :target => "_blank" %> |
+  <%= link_to "Excel", scripts_path(format: "xls"), :target => "_blank" %>
+</p>
+<table class="table table-striped">
+ <col width="1%" />
+ <col width="20%" />
+ <col width="40%" />
+ <col width="30%" />
+ <col width="5%" />
+  <thead>
+    <tr>
+      <th><%= sortable "id" %></th>
+      <th><%= sortable "name" %></i></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:command) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scripts.each do |script| %>
+      <tr>
+        <td><%= script.id %></td>
+        <td><%= link_to script.name, script_path(script) %></td>
+        <td><%= truncate(script.description, :length => 200) %></td>
+        <td><%= truncate(script.command, :length => 100) %></td>
+        <td>
+	<%= link_to(raw('<i class="icon-play-circle"></i> Run'), run_path(script), :class => 'btn btn-mini btn-success', :remote => true, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }) %>
+
+<%= link_to(raw('<i class="icon-file"></i><font size="1"> Stdout</font>'), log_path(script)) %> 
+
+
+<!--
+     <td>     <%= link_to(raw('<i class="icon-edit"></i> Edit'),
+                      edit_script_path(script), :class => 'btn btn-mini') %>
+          <%= link_to(raw('<i class="icon-trash"></i> Destroy'),
+                      script_path(script),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                     :class => 'btn btn-mini btn-danger') %>
+</td>
+-->
+	
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to(raw('<i class="icon-plus-sign"></i> Add New Script'), new_script_path, :class => 'btn btn-primary') %>

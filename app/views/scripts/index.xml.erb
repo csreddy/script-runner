@@ -1,0 +1,11 @@
+<scripts>
+<% @scripts.sort_by(&:id).each do |script| %>
+<script>
+<id><%= script.id %></id>
+<name><%= script.name %></name>
+<description><%= script.description %></description>
+<command><%= script.command %></command>
+</script>
+<% end %>
+
+</scripts>

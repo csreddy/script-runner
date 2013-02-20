@@ -1,0 +1,17 @@
+    <table border="1">
+      <tr>
+       <th>ID</th>
+        <th>Name</th>
+        <th>Description</th
+        <th>Script</th
+      </tr>
+    <% @scripts.sort_by(&:id).each do |script| %>
+      <tr>
+        <td><%= script.id %></td>
+        <td><%= script.name %></td>
+	<td><%= script.description %></td>
+        <td><%= script.command %></td>
+      </tr>
+    <% end %>
+    </table>
+ 
