@@ -2,8 +2,9 @@
 
 ScriptRunner is a simple GUI tool for running bash scripts. If you have bunch of bash scripts that 
 you need to run on a day-to-day basis, this application would serve you best. 
- - You can add/edit/delete scripts
- - Just a click executes the script
- - After execution, it shows the stdout & stderr
- - You can always come back & view stdout & stderr until you run again in which case it will overwrite
+ 1. You can add/edit/delete scripts
+ 2. Just a click executes the script
+ 3. After execution, it shows the stdout & stderr
+ 4. You can always come back & view stdout & stderr until you run again in which case it will overwrite
  the previous stdout/stderr
+ 5. You can export all the scripts in xml & excel format for backup/sharing
