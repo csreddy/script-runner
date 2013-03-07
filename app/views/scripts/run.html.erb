@@ -1,5 +1,5 @@
 <div class="form-actions">
-<%= link_to(raw('<i class="icon-play-circle"></i> Run'), run_script_path(@script), :remote => true, :class => 'btn btn-success', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }) %> 
+<%= link_to(raw('<i class="icon-play-circle"></i> Run'), run_path(@script), :remote => true, :class => 'btn btn-success', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }) %> 
     <%= link_to(raw('<i class="icon-edit"></i> Edit'), edit_script_path(@script), :class => 'btn') %>
 </div>
 <h3>Script Info</h3>
