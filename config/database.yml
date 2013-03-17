@@ -10,7 +10,7 @@ development:
   database: script_runner_dev
   pool: 5
   username: root
-  password: 
+  password: root
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,7 +22,7 @@ test:
   database: script_runner_test
   pool: 5
   username: root
-  password: 
+  password: root
 
 production:
   adapter: mysql2
@@ -31,4 +31,4 @@ production:
   database: script_runner_prod
   pool: 5
   username: root
-  password: 
+  password: root

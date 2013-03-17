@@ -12,6 +12,7 @@
 
 <div class="page-header">
   <h3><%= model_class.human_attribute_name(:script_info) %></h3>
+<p class="text-info"><%= @timestamp_msg if (@timestamp.year > 2012) %></p>
 </div>
 
 <dl class="dl-horizontal">
@@ -20,7 +21,7 @@
 </dl>
 <dl class="dl-horizontal">
 <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @script.description %></dd>
+  <dd><%=  raw(@script.description) %></dd>
 </dl>
 <dl class="dl-horizontal">
 <dt><strong><%= model_class.human_attribute_name(:command) %>:</strong></dt>

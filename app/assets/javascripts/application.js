@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap-wysihtml5
 //= require spin
 //= require_tree .
 
@@ -29,4 +30,7 @@ $(document).ajaxStop(function(r, s) {
    $('#myModal').modal('hide');
 });
 
-
+$('#script_description').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+  

@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap-wysihtml5
  *= require_tree .
  */
 
@@ -62,3 +63,9 @@ div#wait
   background-image: url(/images/down_arrow.gif);
 }
 
+.navlogo {
+    border-right: 1px solid black;
+    float: left;
+    height: 24px;
+    padding: 6px 15px 0 17px;
+}

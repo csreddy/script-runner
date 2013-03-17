@@ -29,9 +29,13 @@ class ScriptsController < ApplicationController
 	success_log = "success_#{script.id}.txt"
 	log_dir = "#{Rails.root}/script-logs/"
 	
-	File.exist?(log_dir + error_log) ? @error = File.read(log_dir + error_log) : @error = 'no stderror found'
-	File.exist?(log_dir + success_log) ? @success = File.read(log_dir + success_log) : @success = 'no stdout found'
+	File.exist?(log_dir + error_log) ? @error = File.read(log_dir + error_log) : @error = 'no stderror'
+	File.exist?(log_dir + success_log) ? @success = File.read(log_dir + success_log) : @success = 'no stdout'
 
+	File.exist?(log_dir + success_log) ? @timestamp = File.ctime(log_dir + success_log) : @timestamp = Time.parse("01-01-2012")
+
+        @timestamp_msg = "This script was last executed at " + ( @timestamp.strftime("%a %b %e %r %Y") if (@timestamp.year > 2012)).to_s 
+        @timestamp_msg if (@timestamp.year > 2012)
 	#@error = File.read(log_dir + error_log) unless File.exist?(log_dir + error_log)
 	#@success = File.read(log_dir + success_log) unless File.exist?(log_dir + error_log)
 	respond_to do |format|
@@ -139,8 +143,8 @@ script_name = "script_#{script.id}.sh"
  `sh #{Rails.root}/script/#{script_name} 2> #{log_dir}#{error_log} 1> #{log_dir}#{success_log}`
 # `#{cmd} #{prm} 2> #{log_dir}#{error_log} 1> #{log_dir}#{success_log}`
 @run_cmd =  "#{cmd} #{prm} 2> #{log_dir}#{error_log} 1> #{log_dir}#{success_log}"
-File.exist?(log_dir + error_log) ? @error = File.read(log_dir + error_log) : @error = 'no stderror found'
-File.exist?(log_dir + success_log) ? @success = File.read(log_dir + success_log) : @success = 'no stdout found'
+File.exist?(log_dir + error_log) ? @error = File.read(log_dir + error_log) : @error = 'no stderror'
+File.exist?(log_dir + success_log) ? @success = File.read(log_dir + success_log) : @success = 'no stdout'
 respond_to do |format|
  format.html
  format.js  
@@ -153,8 +157,8 @@ script = Script.find(params[:id])
 log_dir = "#{Rails.root}/script-logs/"
 error_log = "error_#{script.id}.txt"
 success_log = "success_#{script.id}.txt"
-File.exist?(log_dir + error_log) ? @error = File.read(log_dir + error_log) : @error = 'no stderror found'
-File.exist?(log_dir + success_log) ? @success = File.read(log_dir + success_log) : @success = 'no stdout found'
+File.exist?(log_dir + error_log) ? @error = File.read(log_dir + error_log) : @error = 'no stderror'
+File.exist?(log_dir + success_log) ? @success = File.read(log_dir + success_log) : @success = 'no stdout'
 end
 
 

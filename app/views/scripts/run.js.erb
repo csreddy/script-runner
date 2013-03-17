@@ -1,4 +1,4 @@
-$('#msg').html("<span class='label'>Message:</span> ").append("<font color='red'><%= escape_javascript(@script.name) %></font> was executed at ").append("<%= escape_javascript(Time.now.to_s) %>").append(". See log for details");
+$('#msg').html("<span class='label'>Message:</span> ").append("<font color='red'><%= escape_javascript(@script.name) %></font> was executed at ").append("<%= escape_javascript(Time.now.strftime('%a %b %e %r %Y').to_s) %>").append(". See its log for details");
 $('#stdout').html('').append("<pre><%= escape_javascript(@success) %></pre>");
 $('#stderr').html('').append("<pre><p class='text-error'><%= escape_javascript(@error) %></p></pre>");
 

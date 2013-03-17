@@ -27,7 +27,7 @@
       <tr>
         <td><%= script.id %></td>
         <td><%= link_to script.name, script_path(script) %></td>
-        <td><%= truncate(script.description, :length => 200) %></td>
+        <td><%= truncate_html(script.description, :length => 100) %></td>
         <td><%= truncate(script.command, :length => 100) %></td>
         <td>
 	<%= link_to(raw('<i class="icon-play-circle"></i> Run'), run_path(script), :class => 'btn btn-mini btn-success', :remote => true, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }) %>
